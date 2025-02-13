@@ -71,3 +71,12 @@ GROUP BY ProductName
 ORDER BY TotalSales DESC
 LIMIT 5;
 
+-- Customer Demographics
+SELECT 
+  CustomerGender, 
+  AVG(CustomerAge) AS AvgAge,
+  COUNT(*) AS TransactionCount
+FROM Assessment_Dataset
+WHERE CustomerGender IS NOT NULL
+GROUP BY CustomerGender;
+
