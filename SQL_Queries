@@ -22,3 +22,13 @@ SELECT
 FROM Assessment_Dataset
 GROUP BY PaymentMethod
 ORDER BY TransactionCount DESC;
+
+-- Total Sales by Top 10 Cities
+SELECT 
+  City, 
+  SUM(TransactionAmount) AS TotalSales
+FROM Assessment_Dataset
+WHERE TransactionAmount > 0
+GROUP BY City
+ORDER BY TotalSales DESC
+LIMIT 10;
