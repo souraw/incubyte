@@ -1,0 +1,35 @@
+# Key Insights from the Sales Data:
+
+Aggregate Analysis:
+- Total Sales: $10.2 billion
+- Average Transaction Value: $20,405
+- Total Transactions: 500,000
+
+Sales Breakdown:
+- Top 10 Cities by Sales: Kolkata, Ahmedabad, Bangalore, Pune, Chennai, Delhi, Lucknow, Mumbai, Jaipur, Hyderabad.
+
+Store Type Sales:
+- In-Store: $5.08 billion
+- Online: $5.08 billion (Almost equal to in-store)
+
+Sales by Payment Method:
+- Cash: $2.56B
+- Debit Card: $2.55B
+- UPI: $2.53B
+- Credit Card: $2.52B
+
+Regional Performance:
+- South: $3.18B (Highest)
+- East: $2.65B
+- North: $2.17B
+- West: $2.16B
+
+Customer & Logistics Insights:
+- Returns: 49.89% of transactions involved returned items.
+- Average Feedback Score: 3.0/5 (Indicating moderate satisfaction)
+- Average Delivery Time: 5.24 days.
+
+Top Products by Sales:
+- Laptop: $6.23B (Highest-selling product)
+- Sofa: $3.78B
+- T-Shirt, Notebook, Apple (much lower in comparison)
