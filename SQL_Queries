@@ -61,4 +61,13 @@ WHERE TransactionAmount > 0
 GROUP BY Region, City
 ORDER BY Region, CitySales DESC;
 
+-- Top 5 Products by Sales
+SELECT 
+  ProductName, 
+  SUM(TransactionAmount) AS TotalSales
+FROM Assessment_Dataset
+WHERE TransactionAmount > 0
+GROUP BY ProductName
+ORDER BY TotalSales DESC
+LIMIT 5;
 
