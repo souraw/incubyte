@@ -84,7 +84,10 @@ GROUP BY CustomerGender;
 SELECT 
   Returned, 
   COUNT(*) AS ReturnCount,
-  ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM AssessmentDataset), 2) AS ReturnPercentage
+  ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM AssessmentDataset), 2) AS ReturnPercentage,
+  SUM(ShippingCost) AS TotalShippingCost,
+  SUM(TransactionAmount) AS TotalSales,
+  AVG(TransactionAmount) AS AvgTransactionAmount
 FROM Assessment_Dataset
 GROUP BY Returned;
 
@@ -100,16 +103,6 @@ SELECT
   COUNT(TransactionID) AS TransactionCount
 FROM Assessment_Dataset
 GROUP BY FeedbackScore, Returned;
-
--- Total Shipping Cost and Sales incurred by Returns
-SELECT
-  Returned,
-  SUM(ShippingCost) AS TotalShippingCost,
-  SUM(TransactionAmount) AS TotalSales,
-  AVG(TransactionAmount) AS AvgTransactionAmount,
-  COUNT(TransactionID) AS TotalTransactions
-FROM Assessment_Dataset
-GROUP BY Returned;
 
 -- Promotional Impact
 SELECT 
