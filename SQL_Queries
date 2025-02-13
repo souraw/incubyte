@@ -41,3 +41,24 @@ FROM Assessment_Dataset
 WHERE TransactionAmount > 0
 GROUP BY StoreType
 ORDER BY TotalSales DESC;
+
+-- Total Sales by Region
+SELECT 
+  Region, 
+  SUM(TransactionAmount) AS RegionalSales
+FROM Assessment_Dataset
+WHERE TransactionAmount > 0
+GROUP BY Region
+ORDER BY RegionalSales DESC;
+
+-- Sales by City and Region (Drill Down)
+SELECT
+  Region,
+  City,
+  SUM(TransactionAmount) AS CitySales
+FROM Assessment_Dataset
+WHERE TransactionAmount > 0
+GROUP BY Region, City
+ORDER BY Region, CitySales DESC;
+
+
