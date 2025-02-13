@@ -96,13 +96,30 @@ SELECT
   AVG(FeedbackScore) AS AvgFeedbackScore
 FROM Assessment_Dataset;
 
--- Feedback Score Frequency with Returns
+-- Feedback Score Analysis
+SELECT
+  FeedbackScore,
+  COUNT(TransactionID) AS TransactionCount,
+  AVG(DeliveryTimeDays) AS AvgDeliveryTime,
+  SUM(ShippingCost) AS TotalShippingCost,
+  SUM(TransactionAmount) AS TotalSales,
+  AVG(TransactionAmount) AS AvgTransactionAmount
+FROM Assessment_Dataset
+GROUP BY FeedbackScore;
+
+-- Feedback Score by Returns (Drill Down for customer satisfaction)
 SELECT
   FeedbackScore,
   Returned,
-  COUNT(TransactionID) AS TransactionCount
+  COUNT(TransactionID) AS TransactionCount,
+  AVG(DeliveryTimeDays) AS AvgDeliveryTime
 FROM Assessment_Dataset
 GROUP BY FeedbackScore, Returned;
+
+-- Avg Delivery Time
+SELECT 
+  AVG(DeliveryTimeDays) AS AvgDeliveryTime
+FROM Assessment_Dataset;
 
 -- Promotional Impact
 SELECT 
