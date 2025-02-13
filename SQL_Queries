@@ -1,0 +1,24 @@
+-- Total Sales, Avg Transaction Amount and Total Transactions
+SELECT
+  SUM(TransactionAmount) AS TotalSales,
+  AVG(TransactionAmount) AS AvgTransactionAmount,
+  COUNT(TransactionID) AS TotalTransactions
+FROM Assessment_Dataset
+WHERE TransactionAmount > 0; -- Excluding refunds/returns
+
+-- Sales by Payment Method
+SELECT 
+  PaymentMethod, 
+  SUM(TransactionAmount) AS TotalSales
+FROM Assessment_Dataset
+GROUP BY PaymentMethod
+ORDER BY TotalSales DESC;
+
+-- Payment Method Distribution
+SELECT 
+  PaymentMethod, 
+  COUNT(*) AS TransactionCount,
+  ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM AssessmentDataset), 2) AS Percentage
+FROM Assessment_Dataset
+GROUP BY PaymentMethod
+ORDER BY TransactionCount DESC;

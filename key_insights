@@ -1,7 +1,0 @@
--- Total Sales, Avg Transaction Amount and Total Transactions
-SELECT
-  SUM(TransactionAmount) AS TotalSales,
-  AVG(TransactionAmount) AS AvgTransactionAmount,
-  COUNT(TransactionID) AS TotalTransactions
-FROM Assessment_Dataset
-WHERE TransactionAmount > 0; -- Excluding refunds/returns
