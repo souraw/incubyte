@@ -101,4 +101,21 @@ SELECT
 FROM Assessment_Dataset
 GROUP BY FeedbackScore, Returned;
 
+-- Total Shipping Cost and Sales incurred by Returns
+SELECT
+  Returned,
+  SUM(ShippingCost) AS TotalShippingCost,
+  SUM(TransactionAmount) AS TotalSales,
+  AVG(TransactionAmount) AS AvgTransactionAmount,
+  COUNT(TransactionID) AS TotalTransactions
+FROM Assessment_Dataset
+GROUP BY Returned;
 
+-- Promotional Impact
+SELECT 
+  IsPromotional, 
+  SUM(TransactionAmount) AS PromotionalSales,
+  COUNT(*) AS TransactionCount
+FROM Assessment_Dataset
+WHERE TransactionAmount > 0
+GROUP BY IsPromotional;
