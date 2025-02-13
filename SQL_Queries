@@ -80,3 +80,25 @@ FROM Assessment_Dataset
 WHERE CustomerGender IS NOT NULL
 GROUP BY CustomerGender;
 
+-- Return Analysis
+SELECT 
+  Returned, 
+  COUNT(*) AS ReturnCount,
+  ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM AssessmentDataset), 2) AS ReturnPercentage
+FROM Assessment_Dataset
+GROUP BY Returned;
+
+-- Avg Feedback Score
+SELECT 
+  AVG(FeedbackScore) AS AvgFeedbackScore
+FROM Assessment_Dataset;
+
+-- Feedback Score Frequency with Returns
+SELECT
+  FeedbackScore,
+  Returned,
+  COUNT(TransactionID) AS TransactionCount
+FROM Assessment_Dataset
+GROUP BY FeedbackScore, Returned;
+
+
