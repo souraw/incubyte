@@ -6,7 +6,7 @@ SELECT
 FROM Assessment_Dataset
 WHERE TransactionAmount > 0; -- Excluding refunds/returns
 
--- Sales by Payment Method
+-- Total Sales by Payment Method
 SELECT 
   PaymentMethod, 
   SUM(TransactionAmount) AS TotalSales
@@ -32,3 +32,12 @@ WHERE TransactionAmount > 0
 GROUP BY City
 ORDER BY TotalSales DESC
 LIMIT 10;
+
+-- Total Sales by Store Type
+SELECT 
+  StoreType, 
+  SUM(TransactionAmount) AS TotalSales
+FROM Assessment_Dataset
+WHERE TransactionAmount > 0
+GROUP BY StoreType
+ORDER BY TotalSales DESC;
